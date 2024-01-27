@@ -2,7 +2,6 @@ import pymongo
 from pymongo import MongoClient
 import sys
 
-print("--------EIII")
 try:
     client = MongoClient('mongodb://mongo_user:mongo_password@mongodb:27017/')
     db = client["db_test"]
