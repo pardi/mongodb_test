@@ -6,11 +6,11 @@ build:
 run:
 	docker-compose up
 
-clean:
+db_clean:
 	docker-compose run --rm --name clean_db backend python3 db_clean.py
 
-read:
+db_read:
 	docker-compose run --rm --name read_db backend python3 db_read.py
 
-create:
-	echo "Create database"
+db_create:
+	docker-compose run --rm --name read_db backend python3 db_create.py

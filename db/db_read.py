@@ -7,10 +7,15 @@ db = client["db_test"]
 
 # Get all collection names in the database
 collection_names = db.list_collection_names()
-print(collection_names)
 # Drop each collection
 for collection_name in collection_names:
-    print(collection_name)
+    print(f'Name {collection_name}')
+    db_coll = db[collection_name]
+
+    user_documents = db_coll.find({ "name": "John" })
+    
+    for user in user_documents:
+        print(user)
 
 # Close the connection
 client.close()
