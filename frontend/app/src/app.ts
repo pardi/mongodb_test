@@ -11,6 +11,7 @@ function fetchData(): void {
     fetch('http://localhost:8000/readall/')  // Update the URL to your FastAPI endpoint
         .then(response => response.json())
         .then((data: Entry[]) => {
+            console.log('Data:', data);
             displayData(data);
         })
         .catch(error => console.error('Error fetching data:', error));

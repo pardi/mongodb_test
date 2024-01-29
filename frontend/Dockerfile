@@ -5,5 +5,6 @@ WORKDIR /app
 COPY app/ .
 
 RUN npm install --save-dev typescript 
+RUN npx tsc
 
 CMD ["npm", "start"]

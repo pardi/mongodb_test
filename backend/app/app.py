@@ -1,5 +1,6 @@
 from pymongo import MongoClient
 from fastapi import FastAPI
+from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
 from typing import List
 import json
@@ -20,7 +21,18 @@ client = MongoClient(f'{mongo_URI}://{mongo_user}:{mongo_pswd}@{mongo_URI}:{mong
 db = client[db_name]    
 db_col = db[db_col_name]
 
+# FASTAPI
+
 app = FastAPI()
+
+# Configure CORS
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["http://localhost:3000"],  # Allows all origins
+    allow_credentials=True,
+    allow_methods=["*"],  # Allows all methods
+    allow_headers=["*"],  # Allows all headers
+)
 
 # Pydantic model for reading data
 class DataKey(BaseModel):
@@ -42,7 +54,7 @@ def read_data(data_key: DataKey):
     return ret_docs
 
 @app.get("/readall/", response_model=List[DataEntry])
-def read_data(data_key: DataKey):
+def read_data():
     
     col_documents = db_col.find({ "key": "John" })
     
