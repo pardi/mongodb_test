@@ -1,9 +1,9 @@
-all: build run
+all: build up
 
 build:
 	docker-compose build
 
-run:
+up:
 	docker-compose up
 
 db_clean:
@@ -17,3 +17,6 @@ db_create:
 
 db_add:
 	docker-compose run --rm --name add_db backend python3 db_add.py
+
+frontend_up:
+	docker-compose up frontend

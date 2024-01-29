@@ -41,6 +41,16 @@ def read_data(data_key: DataKey):
         ret_docs.append(document)
     return ret_docs
 
+@app.get("/readall/", response_model=List[DataEntry])
+def read_data(data_key: DataKey):
+    
+    col_documents = db_col.find({ "key": "John" })
+    
+    ret_docs = []
+    for document in col_documents:
+        ret_docs.append(document)
+    return ret_docs
+
 @app.post("/add/", response_model=DataEntry)
 def add_data(data_entry: DataEntry):
     
