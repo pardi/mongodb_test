@@ -1,0 +1,13 @@
+{
+    "db":{
+            "dbName": "db_test",
+            "dbCollection": "user",
+            
+            "mongo": {
+                "user": "mongo_user",
+                "pswd": "mongo_password",
+                "port": 27017,
+                "URI": "mongodb"
+            }
+        }
+}

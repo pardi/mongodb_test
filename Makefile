@@ -13,4 +13,7 @@ db_read:
 	docker-compose run --rm --name read_db backend python3 db_read.py
 
 db_create:
-	docker-compose run --rm --name read_db backend python3 db_create.py
+	docker-compose run --rm --name create_db backend python3 db_create.py
+
+db_add:
+	docker-compose run --rm --name add_db backend python3 db_add.py
